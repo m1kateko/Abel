@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Family Tree | Swihluke swa Abel</title>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <nav class="navbar">
+  <div class="navbar-container">
+    <a href="/" class="navbar-logo">
+      <img src="img/Swihluke-Swa-Abel-logo.png" alt="Logo" />
+    </a>
+    <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <ul class="navbar-menu" id="navbar-menu">
+      <li><a href="#articles">Articles</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#family-tree">Family tree</a></li>
+      <li><a href="#reunions">Reunions</a></li>
+      <li><a href="#calendar">Calendar</a></li>
+    </ul>
+  </div>
+</nav>
+  <div id="controls">
+    <button id="add-person-btn">Add Person</button>
+    <button id="export-json-btn">Export JSON</button>
+    <button id="export-png-btn">Export as PNG</button>
+    <input type="file" id="import-json-input" accept=".json"/>
+    <button id="reset-view-btn">Reset View</button>
+  </div>
+<div id="tree-wrapper">
+  <div id="tree-container">
+    <!-- No SVG here! -->
+  </div>
+</div>
+  <div id="info-popup" class="hidden"></div>
+
+  <script src="https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="tree-data.js"></script>
+  <script src="tree-render.js"></script>
+  
+</body>
+</html>

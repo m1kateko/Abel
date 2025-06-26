@@ -1,0 +1,262 @@
+body, html { margin:0; padding:0; font-family:Arial,sans-serif; }
+#controls { background:#eee; padding:10px; display:flex; gap:10px; align-items:center;display: none; }
+.generation { display:flex; justify-content:center; margin:50px 0; }
+.couple { display:flex; position:relative; margin:0 20px; }
+#info-popup { position:absolute; background:#fff; border:1px solid #333; border-radius:5px; padding:10px; box-shadow:0 0 6px rgba(0,0,0,0.3); z-index:10; max-width:300px; }
+.hidden { display:none; }
+
+/* Make couple wrapper relative for easier line placement */
+.couple {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0 20px;
+}
+
+/* ...existing code... */
+.generation {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 48px; /* Increase this value for more separation */
+  margin-bottom: 40px; /* Optional: more vertical space between generations */
+}
+
+.couple {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 8px;
+}
+/* ...existing code... */
+
+.family-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 220px;
+  margin: 0 48px;
+}
+
+.children-row {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+/* Add this to your CSS file */
+.generation {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.couple {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 10px;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.children-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 30px;
+  width: 100%;
+  position: relative;
+}
+
+
+.person {
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 0 5px;
+  text-align: center;
+  min-width: 120px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ensure the parent uses align-items: stretch */
+.couple, .children-row, .children-wrapper, .generation {
+  align-items: stretch !important;
+}
+
+/* Add this to your CSS file */
+.generation {
+  margin-bottom: 200px; /* Increase this value for more space */
+}
+
+/* Add to your CSS file */
+#tree-container.panning {
+  cursor: grabbing !important;
+}
+
+
+#tree-wrapper {
+  position: relative;
+  overflow: auto;
+  height: calc(100vh - 50px);
+  width: 100vw; /* Add this line */
+  min-width: 0; /* Add this line */
+}
+
+#tree-container {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  height: 80vh;
+  overflow: auto;
+  cursor: grab;
+  min-width: max-content;
+}
+
+#connector-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10;
+  /* REMOVE width, height, min-width, min-height from here! */
+}
+
+#connector-svg {
+  background: rgba(255, 255, 255, 0) !important;
+  z-index: 9999 !important;
+}
+
+.person img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 24px;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+
+#info-popup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px 0;
+  display: block;
+}
+
+body {
+  background-color: #f3f9e3;
+  color: #333;
+}
+
+/* ...existing code... */
+.navbar {
+  background: #f3f9e3;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3rem;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  position: relative; /* Add this */
+}
+
+.navbar-logo {
+  margin-left: 0; /* Remove any default margin */
+}
+
+.navbar-logo img {
+  height: 80px;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-right: 0;
+}
+
+.navbar-menu li {
+  margin-left: 1.5rem;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: #124233;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-menu a:hover {
+
+  color: #1242339c;
+}
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.navbar-toggle .bar {
+  height: 4px;
+  width: 100%;
+  background: #333;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Change from 64px to 100% */
+    left: 0;
+    width: 100%;
+    background: #f3f9e3;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    z-index: 99; /* Ensure it's above content but below logo if needed */
+  }
+  .navbar-menu.active {
+    display: flex;
+  }
+  .navbar-menu li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .navbar-toggle {
+    display: flex;
+  }
+}
