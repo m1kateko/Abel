@@ -39,13 +39,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mouse wheel/trackpad zoom (with ctrl/cmd or two-finger)
   wrapper.addEventListener('wheel', e => {
-    if (e.ctrlKey || e.metaKey || e.deltaY % 1 !== 0) { // pinch or trackpad
-      e.preventDefault();
-      // Slow zoom: deltaY/1000
-      let dz = -e.deltaY / 1000;
-      setZoom(zoom + dz);
-    }
-  }, { passive: false });
+  if (e.ctrlKey || e.metaKey || e.deltaY % 1 !== 0) {
+    e.preventDefault();
+
+    // Zoom delta
+    let dz = -e.deltaY / 1000;
+    const newZoom = Math.max(minZoom, Math.min(maxZoom, zoom + dz));
+
+    // Mouse position relative to wrapper
+    const rect = wrapper.getBoundingClientRect();
+    const offsetX = (e.clientX - rect.left + wrapper.scrollLeft) / zoom;
+    const offsetY = (e.clientY - rect.top + wrapper.scrollTop) / zoom;
+
+    setZoom(newZoom);
+
+    // Scroll to keep focal point under cursor
+    wrapper.scrollLeft = offsetX * newZoom - (e.clientX - rect.left);
+    wrapper.scrollTop = offsetY * newZoom - (e.clientY - rect.top);
+  }
+}, { passive: false });
+
 
   // Pinch zoom for touch devices
   wrapper.addEventListener('touchstart', e => {
@@ -64,9 +77,26 @@ document.addEventListener('DOMContentLoaded', () => {
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
       );
-      let dz = (newDist - lastTouchDist) / 400; // slow factor
-      setZoom(zoom + dz);
-      lastTouchDist = newDist;
+      let dz = (newDist - lastTouchDist) / 400;
+const newZoom = Math.max(minZoom, Math.min(maxZoom, zoom + dz));
+
+// Find midpoint between fingers
+const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+
+// Get position within the scroll container
+const rect = wrapper.getBoundingClientRect();
+const offsetX = (midX - rect.left + wrapper.scrollLeft) / zoom;
+const offsetY = (midY - rect.top + wrapper.scrollTop) / zoom;
+
+setZoom(newZoom);
+
+// After zoom, scroll to keep midpoint stable
+wrapper.scrollLeft = offsetX * newZoom - (midX - rect.left);
+wrapper.scrollTop = offsetY * newZoom - (midY - rect.top);
+
+lastTouchDist = newDist;
+
     }
   }, { passive: false });
 
