@@ -463,9 +463,9 @@ function popupPersonCard(p, e) {
     Status: ${p["Alive / deceased"]}<br>
     <img src="${photoPath}" onerror="this.style.display='none'"/>
     <hr>
-    <button onclick="openEdit(${p.FamID})">Edit</button>
-    <button onclick="removePerson(${p.FamID})">Delete</button>
-    <button onclick="openPartnerUI(${p.FamID})">Set Partner</button>
+    <button class="person-popup" onclick="openEdit(${p.FamID})">Edit</button>
+    <button class="person-popup" onclick="removePerson(${p.FamID})">Delete</button>
+    <button class="person-popup" onclick="openPartnerUI(${p.FamID})">Set Partner</button>
     </div>`;
   popup.classList.remove('hidden');
   popup.style.position = 'fixed';
