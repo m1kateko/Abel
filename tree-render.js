@@ -230,7 +230,7 @@ function createPersonNode(p) {
   const photoPath = `img/photos/${p.FamID}.jpg`;
   div.innerHTML = `
     <img src="${photoPath}" alt="Photo of ${p.Name}" onerror="this.onerror=null;this.src='img/photos/0.jpg'"/>
-    <strong>${p.Name} ${p["Middle name"]} ${p.Surname}</strong><br>
+    <strong>${p["Preferred name"]} ${p.Surname}</strong><br>
     <small>${p["Date of birth"]}</small>`;
   div.addEventListener('click', e => popupPersonCard(p, e));
   return div;
@@ -444,19 +444,43 @@ function drawLines() {
     }
   });
 }
-
-// ...existing code...
-
-
-
-// ...existing code...
+// --- Popup functionality ---
 
 let popupTarget = null; // Store the clicked element
 
 function popupPersonCard(p, e) {
   const photoPath = `img/photos/${p.FamID}.jpg`;
+
+  // Conditionally render social media buttons
+const socialButtons = `
+  
+
+<div style="margin-top: 2px; display: flex; gap: 10px; align-items: center;">
+${p.LinkedIn ? `
+      <a href="${p.LinkedIn}" target="_blank" title="LinkedIn">
+        <img class="social-image" src="img/social-icons/linkedin.png" alt="LinkedIn">
+      </a>` : ''}    
+
+${p.Facebook ? `
+      <a href="${p.Facebook}" target="_blank" title="Facebook">
+        <img class="social-image" src="img/social-icons/facebook.png" alt="Facebook">
+      </a>` : ''}
+
+    ${p.WhatsApp ? `
+      <a href="${p.WhatsApp}" target="_blank" title="WhatsApp">
+        <img class="social-image" src="img/social-icons/whatsapp.png" alt="WhatsApp">
+      </a>` : ''}
+
+    ${p.YouTube ? `
+      <a href="${p.YouTube}" target="_blank" title="YouTube">
+        <img class="social-image" src="img/social-icons/youtube.png" alt="YouTube">
+      </a>` : ''}
+  </div>
+`;
+
+
   popup.innerHTML = `
-    <div><strong>${p.Name} ${p.Surname}</strong><br>
+    <div><strong>${p.Name} ${p["Middle name"]} ${p.Surname}</strong><br><br>
     Born: ${p["Date of birth"]}<br>
     Birth place: ${p["Place of birth"]}<br>
     Gender: ${p.Gender}<br>
@@ -466,15 +490,17 @@ function popupPersonCard(p, e) {
     <button class="person-popup" onclick="openEdit(${p.FamID})">Edit</button>
     <button class="person-popup" onclick="removePerson(${p.FamID})">Delete</button>
     <button class="person-popup" onclick="openPartnerUI(${p.FamID})">Set Partner</button>
+    
+    ${socialButtons}
     </div>`;
+
   popup.classList.remove('hidden');
   popup.style.position = 'fixed';
 
-  // Store the clicked element for repositioning
   popupTarget = e.currentTarget;
-
   positionPopup();
 }
+
 
 // Helper to position the popup next to the target
 function positionPopup() {

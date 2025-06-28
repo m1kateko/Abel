@@ -265,3 +265,10 @@ body {
 .person-popup {
   display: none;
 }
+
+.social-image {
+  height: 28px !important;
+  width: auto !important;
+
+  margin-right: 5px;
+}

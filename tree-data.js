@@ -5,6 +5,7 @@ const familyData = [
     "Gen ID": 1,
     "Name": "Makasani",
     "Middle name": "David I",
+    "Preferred name": "David I",
     "Surname": "Jeleni",
     "Gender": "Male",
     "Date of birth": "",
@@ -14,7 +15,14 @@ const familyData = [
     "Paired with": 2,
     "Marital status": "Married",
     "Alive / deceased": "Deceased",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 2,
@@ -22,6 +30,7 @@ const familyData = [
     "Gen ID": 1,
     "Name": "Maria",
     "Middle name": "",
+    "Preferred name": "Maria",
     "Surname": "Nkuna",
     "Gender": "Female",
     "Date of birth": "",
@@ -31,7 +40,14 @@ const familyData = [
     "Paired with": 1,
     "Marital status": "Married",
     "Alive / deceased": "Deceased",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 3,
@@ -39,6 +55,7 @@ const familyData = [
     "Gen ID": 2,
     "Name": "Hlengani",
     "Middle name": "Abel",
+    "Preferred name": "Abel",
     "Surname": "Jeleni",
     "Gender": "Male",
     "Date of birth": "1 January 1909",
@@ -48,7 +65,14 @@ const familyData = [
     "Paired with": 10,
     "Marital status": "Married",
     "Alive / deceased": "Deceased",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 4,
@@ -56,6 +80,7 @@ const familyData = [
     "Gen ID": 2,
     "Name": "Phillip",
     "Middle name": "",
+    "Preferred name": "Phillip",
     "Surname": "Jeleni",
     "Gender": "Male",
     "Date of birth": "",
@@ -65,7 +90,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Deceased",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 5,
@@ -73,6 +105,7 @@ const familyData = [
     "Gen ID": 2,
     "Name": "Thomas",
     "Middle name": "",
+    "Preferred name": "Thomas",
     "Surname": "Jeleni",
     "Gender": "Male",
     "Date of birth": "",
@@ -82,7 +115,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Deceased",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 6,
@@ -90,6 +130,7 @@ const familyData = [
     "Gen ID": 2,
     "Name": "John",
     "Middle name": "",
+    "Preferred name": "John",
     "Surname": "Jeleni",
     "Gender": "Male",
     "Date of birth": "",
@@ -99,7 +140,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Deceased",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 7,
@@ -107,6 +155,7 @@ const familyData = [
     "Gen ID": 2,
     "Name": "Samuel",
     "Middle name": "",
+    "Preferred name": "Samuel",
     "Surname": "Jeleni",
     "Gender": "Male",
     "Date of birth": "",
@@ -116,7 +165,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Deceased",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 8,
@@ -124,6 +180,7 @@ const familyData = [
     "Gen ID": 2,
     "Name": "Paul",
     "Middle name": "",
+    "Preferred name": "Paul",
     "Surname": "Jeleni",
     "Gender": "Male",
     "Date of birth": "",
@@ -133,7 +190,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Deceased",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 9,
@@ -141,6 +205,7 @@ const familyData = [
     "Gen ID": 2,
     "Name": "Matthew",
     "Middle name": "",
+    "Preferred name": "Matthew",
     "Surname": "Jeleni",
     "Gender": "Male",
     "Date of birth": "",
@@ -150,7 +215,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Deceased",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 10,
@@ -158,6 +230,7 @@ const familyData = [
     "Gen ID": 2,
     "Name": "Danisa",
     "Middle name": "Juliana",
+    "Preferred name": "Danisa",
     "Surname": "Ndhambi",
     "Gender": "Female",
     "Date of birth": "1 January 1927",
@@ -167,7 +240,14 @@ const familyData = [
     "Paired with": 3,
     "Marital status": "Married",
     "Alive / deceased": "Deceased",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 11,
@@ -175,6 +255,7 @@ const familyData = [
     "Gen ID": 3,
     "Name": "Makasani",
     "Middle name": "David II",
+    "Preferred name": "David II",
     "Surname": "Jeleni",
     "Gender": "Male",
     "Date of birth": "4 March 1954",
@@ -184,7 +265,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Deceased",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 12,
@@ -192,6 +280,7 @@ const familyData = [
     "Gen ID": 3,
     "Name": "N'wativa",
     "Middle name": "Annah",
+    "Preferred name": "Annah",
     "Surname": "Jeleni",
     "Gender": "Female",
     "Date of birth": "",
@@ -201,7 +290,14 @@ const familyData = [
     "Paired with": "",
     "Marital status": "Married",
     "Alive / deceased": "Deceased",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 13,
@@ -209,6 +305,7 @@ const familyData = [
     "Gen ID": 3,
     "Name": "Mafemani",
     "Middle name": "Isaiah",
+    "Preferred name": "Isaiah",
     "Surname": "Jeleni",
     "Gender": "Male",
     "Date of birth": "18 May 1959",
@@ -218,7 +315,14 @@ const familyData = [
     "Paired with": "",
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 14,
@@ -226,6 +330,7 @@ const familyData = [
     "Gen ID": 3,
     "Name": "Rhulani",
     "Middle name": "Patricia",
+    "Preferred name": "Rhulani",
     "Surname": "Jeleni",
     "Gender": "Female",
     "Date of birth": "25 January 1962",
@@ -235,7 +340,14 @@ const familyData = [
     "Paired with": "",
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "https://www.facebook.com/profile.php?id=100010525152307",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 15,
@@ -243,6 +355,7 @@ const familyData = [
     "Gen ID": 3,
     "Name": "Tintswalo",
     "Middle name": "Helen",
+    "Preferred name": "Helen",
     "Surname": "Jeleni",
     "Gender": "Female",
     "Date of birth": "4 July 1965",
@@ -252,7 +365,14 @@ const familyData = [
     "Paired with": "",
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "https://www.facebook.com/profile.php?id=100008265436753",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 16,
@@ -260,6 +380,7 @@ const familyData = [
     "Gen ID": 3,
     "Name": "Mveyi",
     "Middle name": "S",
+    "Preferred name": "Mveyi",
     "Surname": "Nxumalo",
     "Gender": "Male",
     "Date of birth": "",
@@ -269,7 +390,14 @@ const familyData = [
     "Paired with": 12,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 17,
@@ -277,6 +405,7 @@ const familyData = [
     "Gen ID": 3,
     "Name": "Elizabeth",
     "Middle name": "",
+    "Preferred name": "Elizabeth",
     "Surname": "Chauke",
     "Gender": "Female",
     "Date of birth": "",
@@ -286,7 +415,14 @@ const familyData = [
     "Paired with": 13,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 18,
@@ -294,6 +430,7 @@ const familyData = [
     "Gen ID": 3,
     "Name": "Khaziyeni",
     "Middle name": "Patrick",
+    "Preferred name": "Patrick",
     "Surname": "Ntimane",
     "Gender": "Male",
     "Date of birth": "22 August 1959",
@@ -303,7 +440,14 @@ const familyData = [
     "Paired with": 14,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 19,
@@ -311,6 +455,7 @@ const familyData = [
     "Gen ID": 3,
     "Name": "Murimisi",
     "Middle name": "Simon",
+    "Preferred name": "Sy",
     "Surname": "Makaringe",
     "Gender": "Male",
     "Date of birth": "4 December 1960",
@@ -320,7 +465,14 @@ const familyData = [
     "Paired with": 15,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 20,
@@ -328,6 +480,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Lorraine",
     "Middle name": "Tinyiko",
+    "Preferred name": "Lorraine",
     "Surname": "Nxumalo",
     "Gender": "Female",
     "Date of birth": "8 February 1980",
@@ -337,7 +490,14 @@ const familyData = [
     "Paired with": 36,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 21,
@@ -345,6 +505,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Cyril",
     "Middle name": "",
+    "Preferred name": "Cyril",
     "Surname": "Nxumalo",
     "Gender": "Male",
     "Date of birth": "",
@@ -354,7 +515,14 @@ const familyData = [
     "Paired with": 37,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 22,
@@ -362,6 +530,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Charles",
     "Middle name": "",
+    "Preferred name": "Charles",
     "Surname": "Nxumalo",
     "Gender": "Male",
     "Date of birth": "",
@@ -371,7 +540,14 @@ const familyData = [
     "Paired with": 38,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 23,
@@ -379,6 +555,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Busisiwe",
     "Middle name": "Charmaine",
+    "Preferred name": "Charmaine",
     "Surname": "Nxumalo",
     "Gender": "Female",
     "Date of birth": "",
@@ -388,7 +565,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 24,
@@ -396,6 +580,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Innocent",
     "Middle name": "Mzwandile",
+    "Preferred name": "Mzwandile",
     "Surname": "Nxumalo",
     "Gender": "Male",
     "Date of birth": "",
@@ -405,7 +590,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 25,
@@ -413,6 +605,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Bongani",
     "Middle name": "",
+    "Preferred name": "Bongani",
     "Surname": "Nxumalo",
     "Gender": "Male",
     "Date of birth": "",
@@ -422,7 +615,14 @@ const familyData = [
     "Paired with": 39,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 26,
@@ -430,6 +630,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Themba",
     "Middle name": "A",
+    "Preferred name": "Themba",
     "Surname": "Jeleni",
     "Gender": "Male",
     "Date of birth": "",
@@ -439,7 +640,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 27,
@@ -447,6 +655,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Nyeleti",
     "Middle name": "Angel",
+    "Preferred name": "Nyeleti",
     "Surname": "Ntimane",
     "Gender": "Female",
     "Date of birth": "23 January 1983",
@@ -456,7 +665,14 @@ const familyData = [
     "Paired with": 40,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 28,
@@ -464,6 +680,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Ntsakisi",
     "Middle name": "Rejoice",
+    "Preferred name": "Ntsakisi",
     "Surname": "Ntimane",
     "Gender": "Female",
     "Date of birth": "13 January 1988",
@@ -473,7 +690,14 @@ const familyData = [
     "Paired with": 41,
     "Marital status": "Divorced",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 29,
@@ -481,6 +705,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Cindy",
     "Middle name": "P",
+    "Preferred name": "Cindy",
     "Surname": "Ntimane",
     "Gender": "Female",
     "Date of birth": "",
@@ -490,7 +715,14 @@ const familyData = [
     "Paired with": 42,
     "Marital status": "Unmarried",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 30,
@@ -498,6 +730,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Jessica",
     "Middle name": "",
+    "Preferred name": "Jessica",
     "Surname": "Makaringe",
     "Gender": "Female",
     "Date of birth": "15 October 1984",
@@ -507,7 +740,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 31,
@@ -515,6 +755,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Fumani",
     "Middle name": "",
+    "Preferred name": "Fumani",
     "Surname": "Makaringe",
     "Gender": "Female",
     "Date of birth": "23 March 1990",
@@ -524,7 +765,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 32,
@@ -532,6 +780,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Mikateko",
     "Middle name": "Sandile",
+    "Preferred name": "Mikateko",
     "Surname": "Makaringe",
     "Gender": "Male",
     "Date of birth": "29 July 1994",
@@ -541,7 +790,14 @@ const familyData = [
     "Paired with": 43,
     "Marital status": "Engaged",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "https://www.linkedin.com/in/mikateko/",
+    "Facebook": "https://www.facebook.com/mikateko.makaringe.39",
+    "Twitter": "https://x.com/m1kateko",
+    "YouTube": "https://www.youtube.com/@mikateko",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": "https://wa.me/27789863151"
   },
   {
     "FamID": 33,
@@ -549,6 +805,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Lebogang",
     "Middle name": "",
+    "Preferred name": "Lebogang",
     "Surname": "Makaringe",
     "Gender": "Male",
     "Date of birth": "29 May 1996",
@@ -558,7 +815,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 34,
@@ -566,6 +830,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Nyiko",
     "Middle name": "",
+    "Preferred name": "Nyiko",
     "Surname": "Makaringe",
     "Gender": "Male",
     "Date of birth": "9 January 1999",
@@ -575,7 +840,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 35,
@@ -583,6 +855,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Murimisi",
     "Middle name": "Simon Jr",
+    "Preferred name": "Simon Jr",
     "Surname": "Makaringe",
     "Gender": "Male",
     "Date of birth": "15 March 2001",
@@ -592,7 +865,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 36,
@@ -600,6 +880,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Masiza",
     "Middle name": "S",
+    "Preferred name": "Masiza",
     "Surname": "Mkansi",
     "Gender": "Male",
     "Date of birth": "2 March 1974",
@@ -609,7 +890,14 @@ const familyData = [
     "Paired with": 20,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 37,
@@ -617,6 +905,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Sphiwe",
     "Middle name": "",
+    "Preferred name": "Sphiwe",
     "Surname": "Sibiya",
     "Gender": "Female",
     "Date of birth": "",
@@ -626,7 +915,14 @@ const familyData = [
     "Paired with": 21,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 38,
@@ -634,6 +930,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Zanele",
     "Middle name": "",
+    "Preferred name": "Zanele",
     "Surname": "Ntimane",
     "Gender": "Female",
     "Date of birth": "",
@@ -643,7 +940,14 @@ const familyData = [
     "Paired with": 22,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 39,
@@ -651,6 +955,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Tinyiko",
     "Middle name": "B",
+    "Preferred name": "Tinyiko",
     "Surname": "Mathebula",
     "Gender": "Female",
     "Date of birth": "",
@@ -660,7 +965,14 @@ const familyData = [
     "Paired with": 25,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 40,
@@ -668,6 +980,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Nicol",
     "Middle name": "Judas",
+    "Preferred name": "Nicol",
     "Surname": "Mkhacana",
     "Gender": "Male",
     "Date of birth": "29 January 1982",
@@ -677,7 +990,14 @@ const familyData = [
     "Paired with": 27,
     "Marital status": "Married",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 41,
@@ -685,6 +1005,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Tommy",
     "Middle name": "",
+    "Preferred name": "Tommy",
     "Surname": "Shilubane",
     "Gender": "Male",
     "Date of birth": "",
@@ -694,7 +1015,14 @@ const familyData = [
     "Paired with": 28,
     "Marital status": "Divorced",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 42,
@@ -702,6 +1030,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Cathrada",
     "Middle name": "",
+    "Preferred name": "Cathrada",
     "Surname": "Mkansi",
     "Gender": "Male",
     "Date of birth": "",
@@ -711,7 +1040,14 @@ const familyData = [
     "Paired with": 29,
     "Marital status": "Unmarried",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 43,
@@ -719,6 +1055,7 @@ const familyData = [
     "Gen ID": 4,
     "Name": "Nombuso",
     "Middle name": "",
+    "Preferred name": "Nombuso",
     "Surname": "Vilakazi",
     "Gender": "Female",
     "Date of birth": "27 April 1995",
@@ -728,7 +1065,14 @@ const familyData = [
     "Paired with": 32,
     "Marital status": "Engaged",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 44,
@@ -736,6 +1080,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Ndzalama",
     "Middle name": "Rito",
+    "Preferred name": "Ndzalama",
     "Surname": "Mkansi",
     "Gender": "Female",
     "Date of birth": "17 Dec 2003",
@@ -745,7 +1090,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 45,
@@ -753,6 +1105,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Vukosi",
     "Middle name": "",
+    "Preferred name": "Vukosi",
     "Surname": "Mkansi",
     "Gender": "Male",
     "Date of birth": "1 July 2009",
@@ -762,7 +1115,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 46,
@@ -770,6 +1130,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Lulama",
     "Middle name": "",
+    "Preferred name": "Lulama",
     "Surname": "Nxumalo",
     "Gender": "Female",
     "Date of birth": "",
@@ -779,7 +1140,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 47,
@@ -787,6 +1155,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Kevin",
     "Middle name": "",
+    "Preferred name": "Kevin",
     "Surname": "Nxumalo",
     "Gender": "Male",
     "Date of birth": "",
@@ -796,7 +1165,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 48,
@@ -804,6 +1180,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Nkateko",
     "Middle name": "",
+    "Preferred name": "Nkateko",
     "Surname": "Nxumalo",
     "Gender": "Female",
     "Date of birth": "",
@@ -813,7 +1190,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 49,
@@ -821,6 +1205,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Khanyisa",
     "Middle name": "N",
+    "Preferred name": "Khanyisa",
     "Surname": "Mnisi",
     "Gender": "Female",
     "Date of birth": "",
@@ -830,7 +1215,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 50,
@@ -838,6 +1230,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Ntsakelo",
     "Middle name": "Best",
+    "Preferred name": "Ntsakelo",
     "Surname": "Madlophe",
     "Gender": "Male",
     "Date of birth": "",
@@ -847,7 +1240,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 51,
@@ -855,6 +1255,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Zukile",
     "Middle name": "Innocent",
+    "Preferred name": "Zukile",
     "Surname": "Nxumalo",
     "Gender": "Male",
     "Date of birth": "",
@@ -864,7 +1265,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 52,
@@ -872,6 +1280,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Zoe",
     "Middle name": "Rirhandzu",
+    "Preferred name": "Zoe",
     "Surname": "Mkhacana",
     "Gender": "Female",
     "Date of birth": "11 February 2011",
@@ -881,7 +1290,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 53,
@@ -889,6 +1305,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Akani",
     "Middle name": "Nonwabe",
+    "Preferred name": "Akani",
     "Surname": "Mkhacana",
     "Gender": "Male",
     "Date of birth": "10 June 2013",
@@ -898,7 +1315,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 54,
@@ -906,6 +1330,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Ntando",
     "Middle name": "Boniface Ntokoto",
+    "Preferred name": "Ntando",
     "Surname": "Mkhacana",
     "Gender": "Male",
     "Date of birth": "4 August 2013",
@@ -915,7 +1340,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "FALSE"
+    "Bloodline": "FALSE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 55,
@@ -923,6 +1355,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Mahlahle",
     "Middle name": "",
+    "Preferred name": "Mahlahle",
     "Surname": "Mkhacana",
     "Gender": "Male",
     "Date of birth": "31 August 2018",
@@ -932,7 +1365,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 56,
@@ -940,6 +1380,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Nganakana",
     "Middle name": "",
+    "Preferred name": "Nganakana",
     "Surname": "Mkhacana",
     "Gender": "Male",
     "Date of birth": "7 January 2021",
@@ -949,14 +1390,22 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 57,
     "Couple ID": "-",
     "Gen ID": 5,
     "Name": "Vunene",
-    "Middle name": "Tommy Junior (TJ)",
+    "Middle name": "Tommy Junior",
+    "Preferred name": "TJ",
     "Surname": "Shilubane",
     "Gender": "Male",
     "Date of birth": "22 May 2008",
@@ -966,7 +1415,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 58,
@@ -974,6 +1430,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Risima",
     "Middle name": "Timmy",
+    "Preferred name": "Risima",
     "Surname": "Shilubane",
     "Gender": "Male",
     "Date of birth": "13 July 2015",
@@ -983,7 +1440,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 59,
@@ -991,6 +1455,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Kuhlula",
     "Middle name": "B",
+    "Preferred name": "Kuhlula",
     "Surname": "Mkansi",
     "Gender": "Female",
     "Date of birth": "",
@@ -1000,7 +1465,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 60,
@@ -1008,6 +1480,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Hlurile",
     "Middle name": "KX",
+    "Preferred name": "Hlurile",
     "Surname": "Mkansi",
     "Gender": "Female",
     "Date of birth": "",
@@ -1017,7 +1490,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 61,
@@ -1025,6 +1505,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Tadiwa",
     "Middle name": "Botshelo",
+    "Preferred name": "Tadiwa",
     "Surname": "Makaringe",
     "Gender": "Male",
     "Date of birth": "14 May 2011",
@@ -1034,7 +1515,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 62,
@@ -1042,6 +1530,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Yinhla",
     "Middle name": "Singita",
+    "Preferred name": "Singita",
     "Surname": "Makaringe",
     "Gender": "Female",
     "Date of birth": "22 September 2015",
@@ -1051,7 +1540,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 63,
@@ -1059,6 +1555,7 @@ const familyData = [
     "Gen ID": 5,
     "Name": "Vukona",
     "Middle name": "Luniko",
+    "Preferred name": "Bhuko",
     "Surname": "Makaringe",
     "Gender": "Male",
     "Date of birth": "30 October 2014",
@@ -1068,7 +1565,14 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   },
   {
     "FamID": 64,
@@ -1076,6 +1580,7 @@ const familyData = [
     "Gen ID": 6,
     "Name": "Kuhlula",
     "Middle name": "Theo",
+    "Preferred name": "Kuhlula",
     "Surname": "Mkansi",
     "Gender": "Male",
     "Date of birth": "12 September 2022",
@@ -1085,6 +1590,13 @@ const familyData = [
     "Paired with": "-",
     "Marital status": "Single",
     "Alive / deceased": "Living",
-    "Bloodline": "TRUE"
+    "Bloodline": "TRUE",
+    "LinkedIn": "",
+    "Facebook": "",
+    "Twitter": "",
+    "YouTube": "",
+    "Tik-Tok": "",
+    "Snapchat": "",
+    "WhatsApp": ""
   }
 ];
