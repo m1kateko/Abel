@@ -12,6 +12,71 @@ document.addEventListener('DOMContentLoaded', () => {
     svg.style.zIndex = "10";
     container.appendChild(svg);
   }
+
+// --- ZOOM SUPPORT ---
+  let zoom = 1;
+  const minZoom = 0.3, maxZoom = 2.5;
+  let lastTouchDist = null;
+
+  // Helper: set zoom and redraw lines
+  function setZoom(z) {
+    zoom = Math.max(minZoom, Math.min(maxZoom, z));
+    container.style.transform = `scale(${zoom})`;
+    container.style.transformOrigin = '0 0';
+   // svg.style.transform = `scale(${zoom})`;
+    // svg.style.transformOrigin = '0 0';
+    // Keep popup the same size (reset scale)
+   // Only scale popup if zoom > 1, otherwise keep it normal size
+  if (zoom > 1) {
+    popup.style.transform = 'scale(' + (1/zoom) + ')';
+  } else {
+    popup.style.transform = 'scale(1)';
+  }
+  popup.style.transformOrigin = 'top left';
+  svg.innerHTML = '';
+  drawLines();
+}
+
+  // Mouse wheel/trackpad zoom (with ctrl/cmd or two-finger)
+  wrapper.addEventListener('wheel', e => {
+    if (e.ctrlKey || e.metaKey || e.deltaY % 1 !== 0) { // pinch or trackpad
+      e.preventDefault();
+      // Slow zoom: deltaY/1000
+      let dz = -e.deltaY / 1000;
+      setZoom(zoom + dz);
+    }
+  }, { passive: false });
+
+  // Pinch zoom for touch devices
+  wrapper.addEventListener('touchstart', e => {
+    if (e.touches.length === 2) {
+      lastTouchDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+    }
+  }, { passive: false });
+
+  wrapper.addEventListener('touchmove', e => {
+    if (e.touches.length === 2 && lastTouchDist !== null) {
+      e.preventDefault();
+      const newDist = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      let dz = (newDist - lastTouchDist) / 400; // slow factor
+      setZoom(zoom + dz);
+      lastTouchDist = newDist;
+    }
+  }, { passive: false });
+
+  wrapper.addEventListener('touchend', e => {
+    if (e.touches.length < 2) lastTouchDist = null;
+  });
+
+  // Reset view button (if you want)
+  document.getElementById('reset-view-btn').onclick = () => setZoom(1);
+  
 const popup = document.getElementById('info-popup');
 
  // Navbar hamburger menu code
@@ -40,7 +105,7 @@ wrapper.addEventListener('mousedown', (e) => {
   startX = e.pageX;
   startY = e.pageY;
   scrollLeft = wrapper.scrollLeft;
-  scrollTop = container.scrollTop; // <-- use container for vertical
+  scrollTop = wrapper.scrollTop;// <-- use container for vertical
   e.preventDefault();
 });
 
@@ -49,7 +114,7 @@ document.addEventListener('mousemove', (e) => {
   const dx = e.pageX - startX;
   const dy = e.pageY - startY;
   wrapper.scrollLeft = scrollLeft - dx;
-  container.scrollTop = scrollTop - dy; // <-- use container for vertical
+  wrapper.scrollTop = scrollTop - dy;  // <-- use container for vertical
 });
 
 document.addEventListener('mouseup', () => {
@@ -144,6 +209,8 @@ function createPersonNode(p) {
 
 // ...existing code...
 
+// ...existing code...
+
 function drawLines() {
   svg.setAttribute('width', container.scrollWidth);
   svg.setAttribute('height', container.scrollHeight);
@@ -170,11 +237,11 @@ function drawLines() {
         let rightRect = rightNode.getBoundingClientRect();
 
         // Right edge of left node
-        const x1 = leftRect.right - contRect.left + container.scrollLeft;
-        const y1 = leftRect.top + leftRect.height / 2 - contRect.top + container.scrollTop;
+        const x1 = (leftRect.right - contRect.left + container.scrollLeft) / zoom;
+        const y1 = (leftRect.top + leftRect.height / 2 - contRect.top + container.scrollTop) / zoom;
         // Left edge of right node
-        const x2 = rightRect.left - contRect.left + container.scrollLeft;
-        const y2 = rightRect.top + rightRect.height / 2 - contRect.top + container.scrollTop;
+        const x2 = (rightRect.left - contRect.left + container.scrollLeft) / zoom;
+        const y2 = (rightRect.top + rightRect.height / 2 - contRect.top + container.scrollTop) / zoom;
 
         // Midpoint for symbol
         const midX = (x1 + x2) / 2;
@@ -235,126 +302,120 @@ function drawLines() {
 
   // ...existing code...
 
-// 2. Draw parent-to-children brackets for each couple
-// ...existing code...
+  // 2. Draw parent-to-children brackets for each couple
+  Object.keys(coupleMap).forEach(cid => {
+    const children = family.filter(child => child["Child to"] == cid);
+    if (children.length > 0) {
+      const contRect = container.getBoundingClientRect();
 
-// 2. Draw parent-to-children brackets for each couple
-Object.keys(coupleMap).forEach(cid => {
-  const children = family.filter(child => child["Child to"] == cid);
-  if (children.length > 0) {
-    const contRect = container.getBoundingClientRect();
+      // Get all child nodes and their top centers
+      const childCenters = children.map(child => {
+        const childNode = document.getElementById(`person-${child.FamID}`);
+        if (!childNode) return null;
+        const cr = childNode.getBoundingClientRect();
+        return {
+          x: (cr.left + cr.width / 2 - contRect.left + container.scrollLeft) / zoom,
+          y: (cr.top - contRect.top + container.scrollTop) / zoom,
+          node: childNode
+        };
+      }).filter(Boolean);
 
-    // Get all child nodes and their top centers
-    const childCenters = children.map(child => {
-      const childNode = document.getElementById(`person-${child.FamID}`);
-      if (!childNode) return null;
-      const cr = childNode.getBoundingClientRect();
-      return {
-        x: cr.left + cr.width / 2 - contRect.left + container.scrollLeft,
-        y: cr.top - contRect.top + container.scrollTop,
-        node: childNode
-      };
-    }).filter(Boolean);
+      if (childCenters.length === 0) return;
 
-    if (childCenters.length === 0) return;
+      // Find leftmost and rightmost child x
+      const minX = Math.min(...childCenters.map(c => c.x));
+      const maxX = Math.max(...childCenters.map(c => c.x));
+      const yMid = childCenters[0].y - 20;
 
-    // Find leftmost and rightmost child x
-    const minX = Math.min(...childCenters.map(c => c.x));
-    const maxX = Math.max(...childCenters.map(c => c.x));
-    const yMid = childCenters[0].y - 20;
+      // Calculate the center of the bracket
+      const bracketCenterX = (minX + maxX) / 2;
 
-    // Calculate the center of the bracket
-    const bracketCenterX = (minX + maxX) / 2;
+      const couple = coupleMap[cid];
 
-    const couple = coupleMap[cid];
+      if (couple && couple.length === 2 && coupleSymbolCenters[cid]) {
+        // --- COUPLE: vertical from symbol, then diagonal to bracket ---
+        const symbolX = coupleSymbolCenters[cid].x;
+        const symbolY = coupleSymbolCenters[cid].y;
 
-    // ...existing code...
+        // Find the lower edge of both couple boxes
+        const nodeA = document.getElementById(`person-${couple[0].FamID}`);
+        const nodeB = document.getElementById(`person-${couple[1].FamID}`);
+        let bottomY = symbolY;
+        if (nodeA && nodeB) {
+          const rectA = nodeA.getBoundingClientRect();
+          const rectB = nodeB.getBoundingClientRect();
+          bottomY = Math.max(
+            (rectA.bottom - contRect.top + container.scrollTop) / zoom,
+            (rectB.bottom - contRect.top + container.scrollTop) / zoom
+          );
+        }
+        // Start vertical line 1px below the couple connecter symbol
+        const verticalStartY = symbolY + 8;
+        const verticalEndY = bottomY + 10;
 
-if (couple && couple.length === 2 && coupleSymbolCenters[cid]) {
-  // --- COUPLE: vertical from symbol, then diagonal to bracket ---
-  const symbolX = coupleSymbolCenters[cid].x;
-  const symbolY = coupleSymbolCenters[cid].y;
+        // Draw vertical line from just below symbol to verticalEndY
+        const vertLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        vertLine.setAttribute("x1", symbolX);
+        vertLine.setAttribute("y1", verticalStartY);
+        vertLine.setAttribute("x2", symbolX);
+        vertLine.setAttribute("y2", verticalEndY);
+        vertLine.setAttribute("stroke", "black");
+        vertLine.setAttribute("stroke-width", "2");
+        svg.appendChild(vertLine);
 
-  // Find the lower edge of both couple boxes
-  const nodeA = document.getElementById(`person-${couple[0].FamID}`);
-  const nodeB = document.getElementById(`person-${couple[1].FamID}`);
-  let bottomY = symbolY;
-  if (nodeA && nodeB) {
-    const rectA = nodeA.getBoundingClientRect();
-    const rectB = nodeB.getBoundingClientRect();
-    bottomY = Math.max(
-      rectA.bottom - contRect.top + container.scrollTop,
-      rectB.bottom - contRect.top + container.scrollTop
-    );
-  }
-  // Start vertical line 1px below the couple connecter symbol
-  const verticalStartY = symbolY + 8;
-  const verticalEndY = bottomY + 10;
+        // Draw diagonal line from verticalEndY to bracket center
+        const diagLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        diagLine.setAttribute("x1", symbolX);
+        diagLine.setAttribute("y1", verticalEndY);
+        diagLine.setAttribute("x2", bracketCenterX);
+        diagLine.setAttribute("y2", yMid);
+        diagLine.setAttribute("stroke", "black");
+        diagLine.setAttribute("stroke-width", "2");
+        svg.appendChild(diagLine);
+      } else {
+        // --- SINGLE PARENT: direct line from their box to bracket ---
+        const parentNode = container.querySelector(`[data-couple="${cid}"] .person`);
+        if (!parentNode) return;
+        const pr = parentNode.getBoundingClientRect();
+        const parentX = (pr.left + pr.width / 2 - contRect.left + container.scrollLeft) / zoom;
+        const parentY = (pr.bottom - contRect.top + container.scrollTop) / zoom;
 
-  // Draw vertical line from just below symbol to verticalEndY
-  const vertLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-  vertLine.setAttribute("x1", symbolX);
-  vertLine.setAttribute("y1", verticalStartY);
-  vertLine.setAttribute("x2", symbolX);
-  vertLine.setAttribute("y2", verticalEndY);
-  vertLine.setAttribute("stroke", "black");
-  vertLine.setAttribute("stroke-width", "2");
-  svg.appendChild(vertLine);
+        const diagLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        diagLine.setAttribute("x1", parentX);
+        diagLine.setAttribute("y1", parentY);
+        diagLine.setAttribute("x2", bracketCenterX);
+        diagLine.setAttribute("y2", yMid);
+        diagLine.setAttribute("stroke", "black");
+        diagLine.setAttribute("stroke-width", "2");
+        svg.appendChild(diagLine);
+      }
 
-  // Draw diagonal line from verticalEndY to bracket center
-  const diagLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-  diagLine.setAttribute("x1", symbolX);
-  diagLine.setAttribute("y1", verticalEndY);
-  diagLine.setAttribute("x2", bracketCenterX);
-  diagLine.setAttribute("y2", yMid);
-  diagLine.setAttribute("stroke", "black");
-  diagLine.setAttribute("stroke-width", "2");
-  svg.appendChild(diagLine);
-} else {
-// ...existing code...
-      // --- SINGLE PARENT: direct line from their box to bracket ---
-      const parentNode = container.querySelector(`[data-couple="${cid}"] .person`);
-      if (!parentNode) return;
-      const pr = parentNode.getBoundingClientRect();
-      const parentX = pr.left + pr.width / 2 - contRect.left + container.scrollLeft;
-      const parentY = pr.bottom - contRect.top + container.scrollTop;
+      // Draw horizontal line connecting all children (the bracket)
+      const hLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      hLine.setAttribute("x1", minX);
+      hLine.setAttribute("y1", yMid);
+      hLine.setAttribute("x2", maxX);
+      hLine.setAttribute("y2", yMid);
+      hLine.setAttribute("stroke", "black");
+      hLine.setAttribute("stroke-width", "2");
+      svg.appendChild(hLine);
 
-      const diagLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-      diagLine.setAttribute("x1", parentX);
-      diagLine.setAttribute("y1", parentY);
-      diagLine.setAttribute("x2", bracketCenterX);
-      diagLine.setAttribute("y2", yMid);
-      diagLine.setAttribute("stroke", "black");
-      diagLine.setAttribute("stroke-width", "2");
-      svg.appendChild(diagLine);
+      // Draw vertical lines from horizontal line to each child
+      childCenters.forEach(c => {
+        const v = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        v.setAttribute("x1", c.x);
+        v.setAttribute("y1", yMid);
+        v.setAttribute("x2", c.x);
+        v.setAttribute("y2", c.y);
+        v.setAttribute("stroke", "black");
+        v.setAttribute("stroke-width", "2");
+        svg.appendChild(v);
+      });
     }
-
-    // Draw horizontal line connecting all children (the bracket)
-    const hLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    hLine.setAttribute("x1", minX);
-    hLine.setAttribute("y1", yMid);
-    hLine.setAttribute("x2", maxX);
-    hLine.setAttribute("y2", yMid);
-    hLine.setAttribute("stroke", "black");
-    hLine.setAttribute("stroke-width", "2");
-    svg.appendChild(hLine);
-
-    // Draw vertical lines from horizontal line to each child
-    childCenters.forEach(c => {
-      const v = document.createElementNS("http://www.w3.org/2000/svg", "line");
-      v.setAttribute("x1", c.x);
-      v.setAttribute("y1", yMid);
-      v.setAttribute("x2", c.x);
-      v.setAttribute("y2", c.y);
-      v.setAttribute("stroke", "black");
-      v.setAttribute("stroke-width", "2");
-      svg.appendChild(v);
-    });
-  }
-});
-// ...existing code...
-// ...existing code...
+  });
 }
+
+// ...existing code...
 
 
 

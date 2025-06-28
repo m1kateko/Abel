@@ -118,7 +118,8 @@ body, html { margin:0; padding:0; font-family:Arial,sans-serif; }
   position: relative;
   z-index: 1;
   padding: 20px;
-  height: 80vh;
+  min-height: 80vh;
+  height: auto;
   overflow: auto;
   cursor: grab;
   min-width: max-content;
