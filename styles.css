@@ -13,7 +13,6 @@ body, html { margin:0; padding:0; font-family:Arial,sans-serif; }
   margin: 0 20px;
 }
 
-/* ...existing code... */
 .generation {
   display: flex;
   flex-direction: row;
@@ -29,7 +28,7 @@ body, html { margin:0; padding:0; font-family:Arial,sans-serif; }
   align-items: center;
   margin: 0 8px;
 }
-/* ...existing code... */
+
 
 .family-unit {
   display: flex;
@@ -46,7 +45,6 @@ body, html { margin:0; padding:0; font-family:Arial,sans-serif; }
   margin-top: 24px;
 }
 
-/* Add this to your CSS file */
 .generation {
   display: flex;
   justify-content: center;
@@ -90,17 +88,16 @@ body, html { margin:0; padding:0; font-family:Arial,sans-serif; }
   align-items: center;
 }
 
-/* Ensure the parent uses align-items: stretch */
+
 .couple, .children-row, .children-wrapper, .generation {
   align-items: stretch !important;
 }
 
-/* Add this to your CSS file */
+
 .generation {
-  margin-bottom: 200px; /* Increase this value for more space */
+  margin-bottom: 200px; 
 }
 
-/* Add to your CSS file */
 #tree-container.panning {
   cursor: grabbing !important;
 }
@@ -110,8 +107,8 @@ body, html { margin:0; padding:0; font-family:Arial,sans-serif; }
   position: relative;
   overflow: auto;
   height: calc(100vh - 50px);
-  width: 100vw; /* Add this line */
-  min-width: 0; /* Add this line */
+  width: 100vw; 
+  min-width: 0;
 }
 
 #tree-container {
@@ -131,7 +128,6 @@ body, html { margin:0; padding:0; font-family:Arial,sans-serif; }
   left: 0;
   pointer-events: none;
   z-index: 10;
-  /* REMOVE width, height, min-width, min-height from here! */
 }
 
 #connector-svg {
@@ -162,7 +158,6 @@ body {
   color: #333;
 }
 
-/* ...existing code... */
 .navbar {
   background: #f3f9e3;
   border-bottom: 1px solid #eee;
@@ -181,11 +176,11 @@ body {
   max-width: 90%;
   margin: 0 auto;
   padding: 0.5rem 1rem;
-  position: relative; /* Add this */
+  position: relative; 
 }
 
 .navbar-logo {
-  margin-left: 0; /* Remove any default margin */
+  margin-left: 0;
 }
 
 .navbar-logo img {
@@ -237,18 +232,18 @@ body {
   transition: 0.3s;
 }
 
-/* Responsive styles */
+
 @media (max-width: 768px) {
   .navbar-menu {
     display: none;
     position: absolute;
-    top: 100%; /* Change from 64px to 100% */
+    top: 100%; 
     left: 0;
     width: 100%;
     background: #f3f9e3;
     flex-direction: column;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    z-index: 99; /* Ensure it's above content but below logo if needed */
+    z-index: 99; 
   }
   .navbar-menu.active {
     display: flex;
