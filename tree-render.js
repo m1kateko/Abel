@@ -13,20 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
     container.appendChild(svg);
   }
 
-// --- ZOOM SUPPORT ---
   let zoom = 1;
   const minZoom = 0.3, maxZoom = 2.5;
   let lastTouchDist = null;
 
-  // Helper: set zoom and redraw lines
   function setZoom(z) {
     zoom = Math.max(minZoom, Math.min(maxZoom, z));
     container.style.transform = `scale(${zoom})`;
     container.style.transformOrigin = '0 0';
-   // svg.style.transform = `scale(${zoom})`;
-    // svg.style.transformOrigin = '0 0';
-    // Keep popup the same size (reset scale)
-   // Only scale popup if zoom > 1, otherwise keep it normal size
   if (zoom > 1) {
     popup.style.transform = 'scale(' + (1/zoom) + ')';
   } else {
@@ -37,30 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
   drawLines();
 }
 
-  // Mouse wheel/trackpad zoom (with ctrl/cmd or two-finger)
   wrapper.addEventListener('wheel', e => {
   if (e.ctrlKey || e.metaKey || e.deltaY % 1 !== 0) {
     e.preventDefault();
 
-    // Zoom delta
     let dz = -e.deltaY / 1000;
     const newZoom = Math.max(minZoom, Math.min(maxZoom, zoom + dz));
 
-    // Mouse position relative to wrapper
     const rect = wrapper.getBoundingClientRect();
     const offsetX = (e.clientX - rect.left + wrapper.scrollLeft) / zoom;
     const offsetY = (e.clientY - rect.top + wrapper.scrollTop) / zoom;
 
     setZoom(newZoom);
 
-    // Scroll to keep focal point under cursor
     wrapper.scrollLeft = offsetX * newZoom - (e.clientX - rect.left);
     wrapper.scrollTop = offsetY * newZoom - (e.clientY - rect.top);
   }
 }, { passive: false });
 
 
-  // Pinch zoom for touch devices
   wrapper.addEventListener('touchstart', e => {
     if (e.touches.length === 2) {
       lastTouchDist = Math.hypot(
@@ -80,18 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
       let dz = (newDist - lastTouchDist) / 400;
 const newZoom = Math.max(minZoom, Math.min(maxZoom, zoom + dz));
 
-// Find midpoint between fingers
 const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
 const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
 
-// Get position within the scroll container
 const rect = wrapper.getBoundingClientRect();
 const offsetX = (midX - rect.left + wrapper.scrollLeft) / zoom;
 const offsetY = (midY - rect.top + wrapper.scrollTop) / zoom;
 
 setZoom(newZoom);
 
-// After zoom, scroll to keep midpoint stable
 wrapper.scrollLeft = offsetX * newZoom - (midX - rect.left);
 wrapper.scrollTop = offsetY * newZoom - (midY - rect.top);
 
@@ -104,12 +90,10 @@ lastTouchDist = newDist;
     if (e.touches.length < 2) lastTouchDist = null;
   });
 
-  // Reset view button (if you want)
   document.getElementById('reset-view-btn').onclick = () => setZoom(1);
   
 const popup = document.getElementById('info-popup');
 
- // Navbar hamburger menu code
   const toggle = document.getElementById('navbar-toggle');
   const menu = document.getElementById('navbar-menu');
   if (toggle && menu) {
@@ -123,8 +107,6 @@ container.addEventListener('scroll', () => {
   drawLines();
 });
 
-// --- Add panning (scrubbing) support ---
-// Change all "container" to "wrapper" in the panning section:
 let isPanning = false;
 let startX, startY, scrollLeft, scrollTop;
 
@@ -135,7 +117,7 @@ wrapper.addEventListener('mousedown', (e) => {
   startX = e.pageX;
   startY = e.pageY;
   scrollLeft = wrapper.scrollLeft;
-  scrollTop = wrapper.scrollTop;// <-- use container for vertical
+  scrollTop = wrapper.scrollTop;
   e.preventDefault();
 });
 
@@ -144,7 +126,7 @@ document.addEventListener('mousemove', (e) => {
   const dx = e.pageX - startX;
   const dy = e.pageY - startY;
   wrapper.scrollLeft = scrollLeft - dx;
-  wrapper.scrollTop = scrollTop - dy;  // <-- use container for vertical
+  wrapper.scrollTop = scrollTop - dy;
 });
 
 document.addEventListener('mouseup', () => {
@@ -177,7 +159,6 @@ function rebuildData() {
 
 function renderTree() {
   container.innerHTML = '';
-  // Always ensure the SVG exists and is appended
   if (!container.contains(svg)) {
     container.appendChild(svg);
   }
@@ -208,9 +189,8 @@ function renderTree() {
 
   setTimeout(() => {
     drawLines();
-    // Center horizontally after drawing
     wrapper.scrollLeft = (container.scrollWidth - wrapper.clientWidth) / 2;
-    wrapper.scrollTop = 0; // Optional: scroll to top
+    wrapper.scrollTop = 0;
   }, 0);
 }
 
@@ -218,14 +198,13 @@ function createPersonNode(p) {
   const div = document.createElement('div');
   div.className = 'person';
   div.id = `person-${p.FamID}`;
-  // Set background color based on gender
   if (p.Gender && p.Gender.toLowerCase().startsWith('f')) {
-    div.style.background = '#dbaFC1'; // Female
+    div.style.background = '#dbaFC1';
   } else if (p.Gender && p.Gender.toLowerCase().startsWith('m')) {
-    div.style.background = '#6ca6c1'; // Male
-    div.style.color = '#fff'; // White text for contrast
+    div.style.background = '#6ca6c1';
+    div.style.color = '#fff';
   } else {
-    div.style.background = '#eee'; // Default/unknown
+    div.style.background = '#eee';
   }
   const photoPath = `img/photos/${p.FamID}.jpg`;
   div.innerHTML = `
@@ -237,19 +216,15 @@ function createPersonNode(p) {
 }
 
 
-// ...existing code...
 
-// ...existing code...
 
 function drawLines() {
   svg.setAttribute('width', container.scrollWidth);
   svg.setAttribute('height', container.scrollHeight);
   svg.innerHTML = '';
 
-  // --- Store couple symbol centers ---
   const coupleSymbolCenters = {};
 
-  // 1. Draw horizontal lines between partners (Couple ID)
   Object.keys(coupleMap).forEach(cid => {
     const couple = coupleMap[cid];
     if (couple.length === 2) {
@@ -260,24 +235,19 @@ function drawLines() {
         const rectB = nodeB.getBoundingClientRect();
         const contRect = container.getBoundingClientRect();
 
-        // Determine left and right nodes
         let leftNode = rectA.left < rectB.left ? nodeA : nodeB;
         let rightNode = rectA.left < rectB.left ? nodeB : nodeA;
         let leftRect = leftNode.getBoundingClientRect();
         let rightRect = rightNode.getBoundingClientRect();
 
-        // Right edge of left node
         const x1 = (leftRect.right - contRect.left + container.scrollLeft) / zoom;
         const y1 = (leftRect.top + leftRect.height / 2 - contRect.top + container.scrollTop) / zoom;
-        // Left edge of right node
         const x2 = (rightRect.left - contRect.left + container.scrollLeft) / zoom;
         const y2 = (rightRect.top + rightRect.height / 2 - contRect.top + container.scrollTop) / zoom;
 
-        // Midpoint for symbol
         const midX = (x1 + x2) / 2;
         const midY = (y1 + y2) / 2;
 
-        // Store the symbol center for this couple
         coupleSymbolCenters[cid] = { x: midX, y: midY };
 
         const status = (couple[0]["Marital status"] || couple[1]["Marital status"] || '').toLowerCase();
@@ -330,15 +300,12 @@ function drawLines() {
     }
   });
 
-  // ...existing code...
 
-  // 2. Draw parent-to-children brackets for each couple
   Object.keys(coupleMap).forEach(cid => {
     const children = family.filter(child => child["Child to"] == cid);
     if (children.length > 0) {
       const contRect = container.getBoundingClientRect();
 
-      // Get all child nodes and their top centers
       const childCenters = children.map(child => {
         const childNode = document.getElementById(`person-${child.FamID}`);
         if (!childNode) return null;
@@ -352,22 +319,18 @@ function drawLines() {
 
       if (childCenters.length === 0) return;
 
-      // Find leftmost and rightmost child x
       const minX = Math.min(...childCenters.map(c => c.x));
       const maxX = Math.max(...childCenters.map(c => c.x));
       const yMid = childCenters[0].y - 20;
 
-      // Calculate the center of the bracket
       const bracketCenterX = (minX + maxX) / 2;
 
       const couple = coupleMap[cid];
 
       if (couple && couple.length === 2 && coupleSymbolCenters[cid]) {
-        // --- COUPLE: vertical from symbol, then diagonal to bracket ---
         const symbolX = coupleSymbolCenters[cid].x;
         const symbolY = coupleSymbolCenters[cid].y;
 
-        // Find the lower edge of both couple boxes
         const nodeA = document.getElementById(`person-${couple[0].FamID}`);
         const nodeB = document.getElementById(`person-${couple[1].FamID}`);
         let bottomY = symbolY;
@@ -379,11 +342,9 @@ function drawLines() {
             (rectB.bottom - contRect.top + container.scrollTop) / zoom
           );
         }
-        // Start vertical line 1px below the couple connecter symbol
         const verticalStartY = symbolY + 8;
         const verticalEndY = bottomY + 10;
 
-        // Draw vertical line from just below symbol to verticalEndY
         const vertLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
         vertLine.setAttribute("x1", symbolX);
         vertLine.setAttribute("y1", verticalStartY);
@@ -393,7 +354,6 @@ function drawLines() {
         vertLine.setAttribute("stroke-width", "2");
         svg.appendChild(vertLine);
 
-        // Draw diagonal line from verticalEndY to bracket center
         const diagLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
         diagLine.setAttribute("x1", symbolX);
         diagLine.setAttribute("y1", verticalEndY);
@@ -403,7 +363,6 @@ function drawLines() {
         diagLine.setAttribute("stroke-width", "2");
         svg.appendChild(diagLine);
       } else {
-        // --- SINGLE PARENT: direct line from their box to bracket ---
         const parentNode = container.querySelector(`[data-couple="${cid}"] .person`);
         if (!parentNode) return;
         const pr = parentNode.getBoundingClientRect();
@@ -420,7 +379,6 @@ function drawLines() {
         svg.appendChild(diagLine);
       }
 
-      // Draw horizontal line connecting all children (the bracket)
       const hLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
       hLine.setAttribute("x1", minX);
       hLine.setAttribute("y1", yMid);
@@ -430,7 +388,6 @@ function drawLines() {
       hLine.setAttribute("stroke-width", "2");
       svg.appendChild(hLine);
 
-      // Draw vertical lines from horizontal line to each child
       childCenters.forEach(c => {
         const v = document.createElementNS("http://www.w3.org/2000/svg", "line");
         v.setAttribute("x1", c.x);
@@ -444,14 +401,12 @@ function drawLines() {
     }
   });
 }
-// --- Popup functionality ---
 
-let popupTarget = null; // Store the clicked element
+let popupTarget = null;
 
 function popupPersonCard(p, e) {
   const photoPath = `img/photos/${p.FamID}.jpg`;
 
-  // Conditionally render social media buttons
 const socialButtons = `
   
 
@@ -480,62 +435,55 @@ ${p.Facebook ? `
 
 
   popup.innerHTML = `
-    <div><strong>${p.Name} ${p["Middle name"]} ${p.Surname}</strong><br><br>
-    Born: ${p["Date of birth"]}<br>
-    Birth place: ${p["Place of birth"]}<br>
-    Gender: ${p.Gender}<br>
-    Status: ${p["Alive / deceased"]}<br>
-    <img src="${photoPath}" onerror="this.style.display='none'"/>
-    <hr>
-    <button class="person-popup" onclick="openEdit(${p.FamID})">Edit</button>
-    <button class="person-popup" onclick="removePerson(${p.FamID})">Delete</button>
-    <button class="person-popup" onclick="openPartnerUI(${p.FamID})">Set Partner</button>
-    
-    ${socialButtons}
-    </div>`;
+  <div><strong>${p.Name} ${p["Middle name"] || ''} ${p.Surname}</strong><br>
+  ${p["Date of birth"] ? `Born: ${p["Date of birth"]}<br>` : ''}
+  ${p["Place of birth"] ? `Birth place: ${p["Place of birth"]}<br>` : ''}
+  Gender: ${p.Gender}<br>
+  Status: ${p["Alive / deceased"]}<br>
+  <img src="${photoPath}" onerror="this.style.display='none'"/>
+  <hr>
+  <button class="person-popup" onclick="openEdit(${p.FamID})">Edit</button>
+  <button class="person-popup" onclick="removePerson(${p.FamID})">Delete</button>
+  <button class="person-popup" onclick="openPartnerUI(${p.FamID})">Set Partner</button>
+  ${socialButtons}
+  </div>`;
 
-  popup.classList.remove('hidden');
-  popup.style.position = 'fixed';
+popup.classList.remove('hidden');
+popup.style.position = 'fixed';
 
-  popupTarget = e.currentTarget;
-  positionPopup();
+popupTarget = e.currentTarget;
+positionPopup();
+
 }
 
 
-// Helper to position the popup next to the target
 function positionPopup() {
   if (!popupTarget) return;
   const rect = popupTarget.getBoundingClientRect();
   const popupRect = popup.getBoundingClientRect();
-  const padding = 8; // space from edge
+  const padding = 8;
 
   let left = rect.right + 10;
   let top = rect.top;
 
-  // If popup would go off right edge, show to the left
   if (left + popupRect.width > window.innerWidth - padding) {
     left = rect.left - popupRect.width - 10;
   }
-  // If still off left edge, clamp to left
   if (left < padding) left = padding;
 
-  // If popup would go off bottom edge, show above
   if (top + popupRect.height > window.innerHeight - padding) {
     top = window.innerHeight - popupRect.height - padding;
   }
-  // If popup would go off top edge, clamp to top
   if (top < padding) top = padding;
 
   popup.style.left = `${left}px`;
   popup.style.top = `${top}px`;
 }
 
-// Update popup position on scroll and resize
 document.getElementById('tree-container').addEventListener('scroll', positionPopup);
 document.getElementById('tree-wrapper').addEventListener('scroll', positionPopup);
 window.addEventListener('resize', positionPopup);
 
-// Hide popup and clear target when clicking outside
 document.addEventListener('click',e=>{
   if(!e.target.closest('.person') && !e.target.closest('#info-popup')){
     popup.classList.add('hidden');
@@ -543,7 +491,6 @@ document.addEventListener('click',e=>{
   }
 });
 
-// ...existing code...
 
 function openEdit(id) {
   const p = personMap[id];
