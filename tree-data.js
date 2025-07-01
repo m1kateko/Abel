@@ -199,7 +199,7 @@ const familyData = [
     "Middle name": "",
     "Preferred name": "Sphe",
     "Surname": "Cele",
-    "Gender": "Male",
+    "Gender": "Female",
     "Date of birth": "10 April 1996",
     "Place of birth": "Durban, KwaZulu-Natal",
     "Child to": "-",
