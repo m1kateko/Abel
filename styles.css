@@ -201,7 +201,7 @@ body {
 
 .navbar-menu a {
   text-decoration: none;
-  color: #124233;
+  color: #136294;
   font-weight: 500;
   transition: color 0.2s;
 }
@@ -266,4 +266,10 @@ body {
   width: auto !important;
 
   margin-right: 5px;
+}
+
+.navbar-container a {
+text-decoration: none;
+  color: #136294;
+}
 }
